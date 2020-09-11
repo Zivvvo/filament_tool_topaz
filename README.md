@@ -24,7 +24,15 @@ cd filament_tool_topaz
 ```
 ## Instructions
 
-To work on a newly generated topaz coordinate file, typically in the following format:
+To work on a newly generated topaz coordinate file, typically in the following format:<br>
+image_name	x_coord	y_coord	score<br>
+Microtubules_00000	420	586	0.6130168<br>
+Microtubules_00000	881	475	-0.32318813<br>
+Microtubules_00000	514	359	-0.6220623<br>
+Microtubules_00000	541	107	-0.7319106<br>
+Microtubules_00000	578	382	-0.7987223<br>
+Microtubules_00000	489	529	-0.81050706<br>
+...
 
 ```bash
 python src/topaz_to_filament.py [topaz_coordiante_file_PATH] [destination_folder_PATH]
