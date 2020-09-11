@@ -56,7 +56,7 @@ see example below, typically, eps depends on the resolution of the micrographs, 
 python src/filament_trace.py filament_mode_coordinates fitted_plots 10 -t -3.25 -eps 10 -min_samples 4
 ```
 
-##Results
+## Results
 
 Pre-fitting: 
 ![prefitting](pre_fitting_example.png)
