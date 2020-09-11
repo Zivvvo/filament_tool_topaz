@@ -21,6 +21,13 @@ parser.add_argument("save_PATH", help="save location for fitted filament plots")
 
 parser.add_argument("spacing", help="distance between neighbouring particles", type= float)
 
+parser.add_argument("-eps", "--eps", help = "The maximum distance between two " +
+                                            "samples for one to be considered " +
+                                            "as in the neighborhood of the other. "
+                                            ,type = float)
+parser.add_argument("-min_samples", "--min_samples", help = "The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself."
+                    , type = float)
+
 args = parser.parse_args()
 
 #convert to numpy
@@ -37,7 +44,7 @@ for file in file_library:
     img = file_library[file]
     plt.scatter(img[0], img[1], marker=".")
     plt.close()
-    list_of_clusters = DBSCAN_fit(img, eps=15, min_samples=5)
+    list_of_clusters = DBSCAN_fit(img, eps=args.eps, min_samples=args.min_samples)
 
     df = pd.DataFrame()
 
@@ -50,7 +57,7 @@ for file in file_library:
             x = ransac_fit.spacing(arclength_o, args.spacing)
 
             y = poly_o["model"].predict(x)
-
+            x = [item[0] for item in x]
             #swap the x and y predicted if they were intially swapped by polyfit
             if (poly_o["swapped"] == True):
                 tmp = x

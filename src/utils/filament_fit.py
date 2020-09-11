@@ -74,7 +74,7 @@ def DBSCAN_fit(img, eps=15, min_samples=5):
         '''plt.plot(xy_not_core[:, 0], xy_not_core[:, 1], 'o', markerfacecolor=tuple(col),
                  markeredgecolor='k', markersize=6)'''
 
-        cluster = np.concatenate((xy, xy_not_core))
+        cluster = xy
         list_of_clusters.append(cluster)
 
     '''plt.title('Estimated number of clusters: %d' % n_clusters_)
