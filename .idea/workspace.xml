@@ -51,12 +51,8 @@
       <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00025.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00025.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/argparse_example.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filament_trace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/filament_trace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_plot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text_csv.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/filament_fit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/filament_fit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visualize_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualize_file.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +197,9 @@
       <workItem from="1598626230417" duration="1398000" />
       <workItem from="1599080836540" duration="6228000" />
       <workItem from="1599150214682" duration="8638000" />
-      <workItem from="1599788083730" duration="3520000" />
+      <workItem from="1599788083730" duration="7034000" />
+      <workItem from="1599848587516" duration="1344000" />
+      <workItem from="1600013054023" duration="1619000" />
     </task>
     <servers />
   </component>

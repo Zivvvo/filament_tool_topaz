@@ -25,6 +25,8 @@ parser.add_argument("-eps", "--eps", help = "The maximum distance between two " 
                                             "samples for one to be considered " +
                                             "as in the neighborhood of the other. "
                                             ,type = float)
+parser.add_argument("-im", "--image", help="if specified with 1, will save an image for the coordiantes as png as well",
+                    type = int)
 parser.add_argument("-min_samples", "--min_samples", help = "The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself."
                     , type = float)
 
@@ -52,7 +54,7 @@ for file in file_library:
 
     for cluster in list_of_clusters:
         try:
-            poly_o = ransac_fit.polyfit(cluster, 2, 1, disable_linear=True, directory_mode=False)
+            poly_o = ransac_fit.polyfit(cluster, 2, 1, disable_linear=False, directory_mode=False)
             arclength_o = ransac_fit.arclength(poly_o)
             x = ransac_fit.spacing(arclength_o, args.spacing)
 
@@ -64,17 +66,22 @@ for file in file_library:
                 x = y
                 y = tmp
 
-            ax1 = fig1.gca()
-            ax1.plot(x, y, color="purple")
-            ax1.scatter(cluster[:, 0], cluster[:, 1])
+            #image option
+            ax1 = None
+            if (args.image == 1):
+                ax1 = fig1.gca()
+                ax1.plot(x, y, color="purple")
+                ax1.scatter(cluster[:, 0], cluster[:, 1])
 
             df2 = pd.DataFrame({'x': x, 'y': y})
             df = df.append(df2)
         except ValueError as e:
             print(e)
             continue
-    ax1.set_title(file)
-    fig1.savefig(args.save_PATH+"/"+file.replace(".txt", ".png"))
+    #image option
+    if (args.image == 1):
+        ax1.set_title(file)
+        fig1.savefig(args.save_PATH+"/"+file.replace(".txt", ".png"))
     df.to_csv(args.save_PATH+"/"+file.replace(".txt", ".csv"))
 
 
