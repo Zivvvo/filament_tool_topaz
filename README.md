@@ -15,6 +15,11 @@ pip install scikit-learn
 pip install numpy
 pip install pandas
 ```
+If you prefer to use anaconda, and have topaz installed in a conda environment, activate the conda environment and install the requirements using
+
+```
+conda install [the packages above]
+```
 
 ## Set up the repository
 
