@@ -1,6 +1,6 @@
 # filament_tool_topaz
 
-filament_tool_topaz is an application to process topaz jobs conducted on micrographs of flamentous molecules
+filament_tool_topaz is an application to process topaz machine learning picking jobs conducted on micrographs of flamentous molecules.
 
 The filament fitting tool is advantageous as it eliminates false/dirty coordinate clusters, improving the efficiency of cryoEM 2D classification jobs as well as identifying equidistant neighbours to improve helical processing of molecules such as microtubules.
 
@@ -44,7 +44,7 @@ Microtubules_00000	489	529	-0.81050706<br>
 python src/topaz_to_filament.py [topaz_coordiante_file_PATH] [destination_folder_PATH]
 ```
 
-This slices the topaz coordiante file into corresponding files for each micrograph, files of this type are referred to as "filament coordiante file" format
+This slices the topaz coordiante file into corresponding files for each micrograph, files of this type are referred to as "filament coordinate file" format.
 
 To perform filament fitting on filament coordinate files, run the following command, which generates the fitted coordinate files using DBSCAN clustering and RANSAC regression, as well as png figures for each micrograph showing the results.
 
@@ -64,6 +64,7 @@ python src/filament_trace.py filament_mode_coordinates fitted_plots 10 -t -3.25 
 ```
 
 ## Results
+Microtubules_00015.png
 
 Pre-fitting: 
 ![prefitting](pre_fitting_example.png)
