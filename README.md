@@ -49,11 +49,12 @@ python src/filament_trace.py [destination_folder_PATH (ie. the filament coordina
                              -t [topaz_particle_threshold]\
                              -eps [max distance between two coordinates to be considered neighbours for DBSCAN fitting]\
                              -min_samples [The number of samples in a neighbourhood for a point to qualify as a "core" [point]
+                             --im [if set to 1, will save a png figure for each fitted example for visualization]
 ```
 see example below, typically, eps depends on the resolution of the micrographs, but min_samples should be set to around 3-7
 
 ```bash
-python src/filament_trace.py filament_mode_coordinates fitted_plots 10 -t -3.25 -eps 10 -min_samples 4
+python src/filament_trace.py filament_mode_coordinates fitted_plots 10 -t -3.25 -eps 10 -min_samples 4 -im 1
 ```
 
 ## Results
