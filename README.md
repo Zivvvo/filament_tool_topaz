@@ -18,6 +18,7 @@ pip install pandas
 If you prefer to use anaconda, and have topaz installed in a conda environment, activate the conda environment and install the requirements using
 
 ```
+conda activate [topaz_environment_name]
 conda install [the packages above]
 ```
 
