@@ -2,7 +2,7 @@
 
 filament_tool_topaz is an application to process topaz machine learning picking jobs conducted on micrographs of flamentous molecules.
 
-The filament fitting tool is advantageous as it eliminates false/dirty coordinate clusters, improving the efficiency of cryoEM 2D classification jobs as well as identifying equidistant neighbours to improve helical processing of molecules such as microtubules.
+The filament fitting tool is advantageous as it eliminates false/dirty coordinate clusters, improving the efficiency of cryoEM 2D classification jobs as well as identifying equidistant neighbours to improve helical processing of molecules such as microtubules by exploiting their symmetry along the helix.
 
 ## Set up the requirements
 
