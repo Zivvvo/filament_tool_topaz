@@ -3,56 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd2990fd-7151-4187-bebe-64c887c999d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00003.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00003.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00003.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00003.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00004.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00004.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00004.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00004.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00005.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00005.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00005.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00005.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00006.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00006.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00006.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00006.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00007.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00007.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00007.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00007.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00008.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00008.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00008.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00008.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00010.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00010.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00010.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00010.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00011.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00011.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00011.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00011.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00012.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00012.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00012.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00012.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00013.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00013.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00013.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00013.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00014.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00014.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00014.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00014.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00015.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00015.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00015.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00015.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00016.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00016.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00016.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00016.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00017.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00017.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00017.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00017.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00018.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00018.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00018.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00018.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00019.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00019.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00019.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00019.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00021.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00021.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00021.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00021.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00022.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00022.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00022.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00022.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00023.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00023.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00023.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00023.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00024.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00024.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00024.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00024.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00025.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00025.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00025.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00025.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.csv" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00027.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filament_trace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/filament_trace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualize_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualize_file.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +150,8 @@
       <workItem from="1599150214682" duration="8638000" />
       <workItem from="1599788083730" duration="7034000" />
       <workItem from="1599848587516" duration="1344000" />
-      <workItem from="1600013054023" duration="1619000" />
+      <workItem from="1600013054023" duration="2377000" />
+      <workItem from="1600568003249" duration="1099000" />
     </task>
     <servers />
   </component>

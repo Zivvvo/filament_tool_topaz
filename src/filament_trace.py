@@ -29,8 +29,11 @@ parser.add_argument("-im", "--image", help="if specified with 1, will save an im
                     type = int)
 parser.add_argument("-min_samples", "--min_samples", help = "The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself."
                     , type = float)
+parser.add_argument("-box","--box_size", help = "box size of the selected particles", type=int)
 
 args = parser.parse_args()
+
+box_size = args.box_size
 
 #convert to numpy
 file_library = None
@@ -73,7 +76,7 @@ for file in file_library:
                 ax1.plot(x, y, color="purple")
                 ax1.scatter(cluster[:, 0], cluster[:, 1])
 
-            df2 = pd.DataFrame({'x': x, 'y': y})
+            df2 = pd.DataFrame({'x': x, 'y': y, "box_size": box_size, "box_size_2": box_size, "mode": -3})
             df = df.append(df2)
         except ValueError as e:
             print(e)
@@ -82,6 +85,6 @@ for file in file_library:
     if (args.image == 1):
         ax1.set_title(file)
         fig1.savefig(args.save_PATH+"/"+file.replace(".txt", ".png"))
-    df.to_csv(args.save_PATH+"/"+file.replace(".txt", ".csv"))
+    df.to_csv(args.save_PATH+"/"+file.replace(".txt", ".csv"), sep = "\t", index = False, header=False)
 
 
