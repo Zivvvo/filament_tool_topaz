@@ -62,7 +62,9 @@ for file in file_library:
             x = ransac_fit.spacing(arclength_o, args.spacing)
 
             y = poly_o["model"].predict(x)
-            x = [item[0] for item in x]
+            x = [int(item[0]) for item in x]
+            y = [int(item) for item in y]
+
             #swap the x and y predicted if they were intially swapped by polyfit
             if (poly_o["swapped"] == True):
                 tmp = x
@@ -85,6 +87,6 @@ for file in file_library:
     if (args.image == 1):
         ax1.set_title(file)
         fig1.savefig(args.save_PATH+"/"+file.replace(".txt", ".png"))
-    df.to_csv(args.save_PATH+"/"+file.replace(".txt", ".csv"), sep = "\t", index = False, header=False)
+    df.to_csv(args.save_PATH+"/"+file.replace(".txt", ".box"), sep = "\t", index = False, header=False)
 
 
