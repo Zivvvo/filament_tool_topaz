@@ -62,8 +62,7 @@ for file in file_library:
             x = ransac_fit.spacing(arclength_o, args.spacing)
 
             y = poly_o["model"].predict(x)
-            x = [int(item[0]) for item in x]
-            y = [int(item) for item in y]
+            x = [(item[0]) for item in x]
 
             #swap the x and y predicted if they were intially swapped by polyfit
             if (poly_o["swapped"] == True):

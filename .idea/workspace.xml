@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd2990fd-7151-4187-bebe-64c887c999d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test_eman_output/Microtubules_00001.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_eman_output/Microtubules_00001.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filament_trace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/filament_trace.py" afterDir="false" />
     </list>
@@ -159,7 +157,8 @@
       <workItem from="1601311160447" duration="1534000" />
       <workItem from="1601401510498" duration="19000" />
       <workItem from="1603587435080" duration="13647000" />
-      <workItem from="1603629348327" duration="2073000" />
+      <workItem from="1603629348327" duration="2984000" />
+      <workItem from="1603680958805" duration="263000" />
     </task>
     <servers />
   </component>
