@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dd2990fd-7151-4187-bebe-64c887c999d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.box" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.box" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.box" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.box" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filament_trace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/filament_trace.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -159,7 +163,7 @@
       <workItem from="1603587435080" duration="13647000" />
       <workItem from="1603629348327" duration="2984000" />
       <workItem from="1603680958805" duration="1475000" />
-      <workItem from="1604538319142" duration="598000" />
+      <workItem from="1604538319142" duration="2389000" />
     </task>
     <servers />
   </component>

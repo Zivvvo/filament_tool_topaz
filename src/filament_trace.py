@@ -1,6 +1,10 @@
 import os
 import sys
 import argparse
+import multiprocessing as mp
+
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 sys.path.append(".")
 
@@ -50,7 +54,7 @@ else:
     file_library = parse_helix_coordinates(args.filament_PATH)
 
 for file in file_library:
-    print(file)
+    print("Writing filament coordiantes for "+ file)
     img = file_library[file]
     plt.scatter(img[0], img[1], marker=".")
     plt.close()
@@ -62,6 +66,7 @@ for file in file_library:
 
     helix_id = 1
     for cluster in list_of_clusters:
+
         try:
             poly_o = ransac_fit.polyfit(cluster, 2, 1, disable_linear=False, directory_mode=False)
             arclength_o = ransac_fit.arclength(poly_o)
@@ -89,8 +94,10 @@ for file in file_library:
             df2 = pd.DataFrame({'x': x, 'y': y, "box_size": box_size, "box_size_2": box_size, "helix_id": helix_id})
             df = df.append(df2)
             helix_id += 1
+        except KeyboardInterrupt:
+            print("Process interrupted @ "+ file)
+            exit(100)
         except ValueError as e:
-            print(e)
             continue
     # image option
     if (args.image == 1):
