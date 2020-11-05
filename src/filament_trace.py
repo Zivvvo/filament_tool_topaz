@@ -4,6 +4,7 @@ import argparse
 import multiprocessing as mp
 
 import warnings
+
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 sys.path.append(".")
@@ -27,17 +28,20 @@ parser.add_argument("save_PATH", help="save location for fitted filament plots")
 
 parser.add_argument("spacing", help="distance between neighbouring particles", type=float)
 
-parser.add_argument("-eps", "--eps", nargs= '?', const= 10,help="The maximum distance between two " +
-                                          "samples for one to be considered " +
-                                          "as in the neighborhood of the other. "
+parser.add_argument("-eps", "--eps", nargs='?', const=10, help="The maximum distance between two " +
+                                                               "samples for one to be considered " +
+                                                               "as in the neighborhood of the other. "
                     , type=float)
-parser.add_argument("-im", "--image", nargs= "?", const=0, help="if specified with 1, will save an image for the coordiantes as png as well",
+parser.add_argument("-im", "--image", nargs="?", const=0,
+                    help="if specified with 1, will save an image for the coordiantes as png as well",
                     type=bool)
-parser.add_argument("-min_samples", "--min_samples", nargs = "?", const = 5,
+parser.add_argument("-min_samples", "--min_samples", nargs="?", const=5,
                     help="The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself."
                     , type=float)
-parser.add_argument("-box", "--box_size", nargs= "?", const=100, help="box size of the selected particles", type=int)
-parser.add_argument("-min_part", "--min_part", nargs="?", const=10, help="the minimum number of particles in a cluster/filament", type=int)
+parser.add_argument("-box", "--box_size", nargs="?", const=100, help="box size of the selected particles", type=int)
+parser.add_argument("-min_part", "--min_part", nargs="?", const=10,
+                    help="the minimum number of particles in a cluster/filament", type=int)
+parser.add_argument("-processors", "--processors", nargs="?", const= 1, help="Number of processors to use", type=int)
 
 args = parser.parse_args()
 
@@ -53,8 +57,9 @@ if args.threshold is not None:
 else:
     file_library = parse_helix_coordinates(args.filament_PATH)
 
-for file in file_library:
-    print("Writing filament coordiantes for "+ file)
+
+def process_file(file):
+    print("Writing filament coordiantes for " + file)
     img = file_library[file]
     plt.scatter(img[0], img[1], marker=".")
     plt.close()
@@ -94,9 +99,6 @@ for file in file_library:
             df2 = pd.DataFrame({'x': x, 'y': y, "box_size": box_size, "box_size_2": box_size, "helix_id": helix_id})
             df = df.append(df2)
             helix_id += 1
-        except KeyboardInterrupt:
-            print("Process interrupted @ "+ file)
-            exit(100)
         except ValueError as e:
             continue
     # image option
@@ -104,5 +106,15 @@ for file in file_library:
         ax1.set_title(file)
         fig1.savefig(args.save_PATH + "/" + file.replace(".txt", ".png"))
     df.to_csv(args.save_PATH + "/" + file.replace(".txt", ".box"), sep="\t", index=False, header=False)
+    return 99
 
 
+if __name__ == "__main__":
+
+    pool = mp.Pool(args.processors)
+
+    results = pool.map(process_file, [file for file in file_library])
+
+    pool.close()
+
+    exit(100)

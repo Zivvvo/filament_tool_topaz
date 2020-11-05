@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd2990fd-7151-4187-bebe-64c887c999d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.box" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.box" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.box" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.box" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/fitted_plots/Microtubules_00002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filament_trace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/filament_trace.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.filament_trace">
+  <component name="RunManager" selected="Python.test">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Filament_Picking" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -130,8 +127,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Filament_Picking" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.filament_trace" />
         <item itemvalue="Python.main" />
       </list>
@@ -163,7 +180,11 @@
       <workItem from="1603587435080" duration="13647000" />
       <workItem from="1603629348327" duration="2984000" />
       <workItem from="1603680958805" duration="1475000" />
-      <workItem from="1604538319142" duration="2389000" />
+      <workItem from="1604538319142" duration="3649000" />
+      <workItem from="1604541997707" duration="367000" />
+      <workItem from="1604542508616" duration="75000" />
+      <workItem from="1604542686118" duration="784000" />
+      <workItem from="1604543710067" duration="444000" />
     </task>
     <servers />
   </component>
