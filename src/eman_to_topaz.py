@@ -8,7 +8,7 @@ if (len(args)!=3):
     print ("Usage: python eman_to_topaz.py eman_coord_path topaz_coord_path")
     exit(1)
 
-os.chdir("..")
+#os.chdir("..")
 path_to_EMAN = args[1]
 path_to_topaz = args[2]
 
