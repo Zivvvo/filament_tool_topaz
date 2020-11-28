@@ -4,7 +4,7 @@ sys.path.append(".")
 
 args = sys.argv
 if (len(args)!=3):
-    print ("Usage: python eman_to_topaz.py eman_coord_path topaz_coord_path")
+    print ("Usage: python topaz_to_filament.py topaz_coord_path eman_coord_path")
     exit(1)
 
 from utils.parsers import parse_topaz_coordinates
