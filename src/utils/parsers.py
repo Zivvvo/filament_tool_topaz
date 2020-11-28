@@ -66,11 +66,15 @@ def parse_helix_coordinates(path, threshold=-2.5):
     threshold_score = -2.5
 
     for file in os.listdir(path)[1:]:
-        df = pd.read_csv(path+"/"+file, sep="\t")
-        df = df.drop(df[df.score<threshold_score].index)
-        x = df["x_coord"].to_numpy()
-        y = df["y_coord"].to_numpy()
-        tup = (x,y)
-        file_library.update({file: tup})
+        try:
+            df = pd.read_csv(path+"/"+file, sep="\t")
+            df = df.drop(df[df.score<threshold_score].index)
+            x = df["x_coord"].to_numpy()
+            y = df["y_coord"].to_numpy()
+            tup = (x,y)
+            file_library.update({file: tup})
+        except AttributeError:
+            #if an input file did not satisfy requirements
+            continue
 
     return file_library

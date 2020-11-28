@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument("filament_PATH", help="location of filament files")
 
-parser.add_argument("-t", "--threshold", help="threshold for particle extraction", type=float)
+parser.add_argument("-t", "--threshold", nargs= '?', const= -3, help="threshold for particle extraction", type=float)
 
 parser.add_argument("save_PATH", help="save location for fitted filament plots")
 
@@ -41,7 +41,7 @@ parser.add_argument("-min_samples", "--min_samples", nargs="?", const=5,
 parser.add_argument("-box", "--box_size", nargs="?", const=100, help="box size of the selected particles", type=int)
 parser.add_argument("-min_part", "--min_part", nargs="?", const=10,
                     help="the minimum number of particles in a cluster/filament", type=int)
-parser.add_argument("-processors", "--processors", nargs="?", const= 1, help="Number of processors to use", type=int)
+parser.add_argument("-processors", "--processors", nargs="?", const= 2, help="Number of processors to use", type=int)
 
 args = parser.parse_args()
 
@@ -63,7 +63,11 @@ def process_file(file):
     img = file_library[file]
     plt.scatter(img[0], img[1], marker=".")
     plt.close()
-    list_of_clusters = DBSCAN_fit(img, eps=args.eps, min_samples=args.min_samples)
+    try:
+        list_of_clusters = DBSCAN_fit(img, eps=args.eps, min_samples=args.min_samples)
+    except ValueError:
+        print("no clusters found, continuing to next file")
+        return -100
 
     df = pd.DataFrame()
 
@@ -104,6 +108,7 @@ def process_file(file):
             helix_id += 1
         except ValueError as e:
             continue
+
     # image option
     if (args.image == 1 and ax1 != None):
         ax1.set_title(file)
@@ -119,5 +124,7 @@ if __name__ == "__main__":
     results = pool.map(process_file, [file for file in file_library])
 
     pool.close()
+
+    pool.join()
 
     exit(100)
