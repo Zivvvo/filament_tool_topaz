@@ -59,7 +59,7 @@ else:
 
 
 def process_file(file):
-    print("Writing filament coordiantes for " + file)
+    print("Writing filament coordinates for " + file)
     img = file_library[file]
     plt.scatter(img[0], img[1], marker=".")
     plt.close()
@@ -70,6 +70,9 @@ def process_file(file):
     fig1 = plt.figure(1)
 
     helix_id = 1
+
+    ax1 = None
+
     for cluster in list_of_clusters:
 
         try:
@@ -102,7 +105,7 @@ def process_file(file):
         except ValueError as e:
             continue
     # image option
-    if (args.image == 1):
+    if (args.image == 1 and ax1 != None):
         ax1.set_title(file)
         fig1.savefig(args.save_PATH + "/" + file.replace(".txt", ".png"))
     df.to_csv(args.save_PATH + "/" + file.replace(".txt", ".box"), sep="\t", index=False, header=False)
