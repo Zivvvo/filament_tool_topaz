@@ -14,6 +14,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the req
 pip install scikit-learn
 pip install numpy
 pip install pandas
+pip install Gooey
 ```
 If you prefer to use anaconda, and have topaz installed in a conda environment, activate the conda environment and install the requirements using
 
