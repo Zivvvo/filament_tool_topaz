@@ -4,7 +4,7 @@
     <list default="true" id="dd2990fd-7151-4187-bebe-64c887c999d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filament_trace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/filament_trace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/parsers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/parsers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/visualize_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualize_file.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +34,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -60,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.filament_trace">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Filament_Picking" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,9 +88,6 @@
       <module name="Filament_Picking" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -151,8 +149,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.filament_trace" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -191,6 +189,8 @@
       <workItem from="1604544254650" duration="349000" />
       <workItem from="1606538303412" duration="675000" />
       <workItem from="1606598604951" duration="5127000" />
+      <workItem from="1606693568564" duration="57000" />
+      <workItem from="1607579925613" duration="3959000" />
     </task>
     <servers />
   </component>
