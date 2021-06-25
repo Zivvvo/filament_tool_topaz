@@ -81,6 +81,33 @@ def DBSCAN_fit(img, eps=15, min_samples=5):
     plt.close()'''
     return list_of_clusters
 
+def optics_fit(img, xi = -0.15, min_samples=2):
+    from sklearn import cluster
+
+    X = img
+    optics = cluster.OPTICS(min_samples,
+                            cluster_method='xi',
+                            xi = xi)
+
+    optics.fit(X)
+
+    if hasattr(optics, 'labels_'):
+        y_pred = optics.labels_.astype(int)
+    else:
+        y_pred = optics.predict(X)
+
+    labels = optics.labels_
+
+    unique_labels = set(labels)
+
+    clusters = []
+    for l in unique_labels:
+        class_member_mask = (labels == l)
+        cluster = X[class_member_mask]
+        clusters.append(cluster)
+
+    return clusters
+
 
 #input: output of DBSCAN_fit - a list of numpy arrays, a path for saving the figure
 #output: None
