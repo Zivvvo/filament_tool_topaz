@@ -79,7 +79,8 @@ def process_file(file_library, args, file):
     plt.close()
     try:
         list_of_clusters = DBSCAN_fit(img, eps=args.eps, min_samples=args.min_samples)
-    except ValueError:
+    except ValueError as e:
+        print(e)
         print("no clusters found, continuing to next file")
         return -100
 

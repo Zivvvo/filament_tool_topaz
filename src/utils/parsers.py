@@ -63,7 +63,7 @@ def parse_topaz_coordinates(path_to_topaz, path_to_helix):
 def parse_helix_coordinates(path, threshold=-2.5):
     #parse each file
     file_library = {}
-    threshold_score = -2.5
+    threshold_score = threshold
 
     for file in os.listdir(path)[1:]:
         try:
