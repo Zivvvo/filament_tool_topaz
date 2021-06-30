@@ -7,6 +7,7 @@ import warnings
 import matplotlib.pyplot as plt
 import pandas as pd
 from functools import partial
+import numpy as np
 
 sys.path.append(".")
 from utils.parsers import *
@@ -44,6 +45,8 @@ def main():
     parser.add_argument("-min_part", "--min_part", nargs="?", const=10,
                         help="the minimum number of particles in a cluster/filament", type=int)
     parser.add_argument("-processors", "--processors", nargs="?", const= 2, help="Number of processors to use", type=int)
+
+    parser.add_argument("-to_segment", "--segment", nargs="?", const = 0, help="Segment long clusters into subclusters", type =bool)
 
     args = parser.parse_args()
 
@@ -92,6 +95,48 @@ def process_file(file_library, args, file):
 
     ax1 = None
 
+
+    if (args.segment == 1):
+        def range_of_vals(x, axis=0):
+            return np.max(x, axis=axis) - np.min(x, axis=axis)
+
+        def max_var_axis(cluster):
+            arr = np.array(cluster)
+            if (range_of_vals(arr[:, 0]) >= range_of_vals(arr[:, 1])):
+                return 0
+            else:
+                return 1
+
+        def sort(cluster, axis=0):
+            # axis = 0 --> x axis
+            if axis == 0:
+                return cluster[cluster[:, 0].argsort()]
+            else:
+                return cluster[cluster[:, 1].argsort()]
+
+        def average_length(lst):
+            lengths = [len(i) for i in lst]
+            return 0 if len(lengths) == 0 else (float(sum(lengths)) / len(lengths))
+
+        sorted_list_of_cluster = sorted(list_of_clusters, key=len, reverse=True)
+        clusters_to_fit = []
+        avg_len = average_length(sorted_list_of_cluster)
+
+        for i in range(len(sorted_list_of_cluster)):
+            if len(sorted_list_of_cluster[i]) > 1.5 * avg_len:
+                clst = sorted_list_of_cluster[i]
+
+                clst = sort(clst, axis=max_var_axis(clst))
+
+                clst_half1 = clst[:int(len(clst) / 2)]
+                clst_half2 = clst[int(len(clst) / 2):]
+
+                clusters_to_fit.append(clst_half1)
+                clusters_to_fit.append(clst_half2)
+            else:
+                clusters_to_fit.append(sorted_list_of_cluster[i])
+        list_of_clusters = clusters_to_fit
+
     for cluster in list_of_clusters:
 
         try:
@@ -122,6 +167,7 @@ def process_file(file_library, args, file):
             df = df.append(df2)
             helix_id += 1
         except ValueError as e:
+            print(e)
             continue
 
     # image option

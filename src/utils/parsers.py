@@ -49,7 +49,7 @@ def parse_topaz_coordinates(path_to_topaz, path_to_helix):
         line = x.split("\t")
         if line[0] != current_title:
             current_title = line[0]
-            o = open(path_to_helix + "/" + line[0] + ".txt", "w")
+            o = open(os.path.join(path_to_helix,line[0]) + ".txt", "w")
 
             o.write("x_coord\ty_coord\tscore\n")
             o.write(line[1] + "\t" + line[2] + "\t" + line[3])
