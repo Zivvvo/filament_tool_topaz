@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dd2990fd-7151-4187-bebe-64c887c999d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filament_trace.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/filament_trace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/parsers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/parsers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +86,9 @@
       <module name="Filament_Picking" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -219,7 +220,8 @@
       <workItem from="1623091897992" duration="1622000" />
       <workItem from="1623363356062" duration="20000" />
       <workItem from="1625064891680" duration="4763000" />
-      <workItem from="1625082163539" duration="666000" />
+      <workItem from="1625082163539" duration="1454000" />
+      <workItem from="1625092953508" duration="2868000" />
     </task>
     <servers />
   </component>

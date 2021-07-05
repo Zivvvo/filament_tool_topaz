@@ -2,7 +2,7 @@ import os
 import sys
 import argparse
 import multiprocessing as mp
-from gooey import Gooey
+#from gooey import Gooey
 import warnings
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -15,7 +15,7 @@ from utils.filament_fit import *
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-@Gooey
+#@Gooey
 
 def main():
     sys.path.append(".")
