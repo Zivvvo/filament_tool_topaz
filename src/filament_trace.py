@@ -25,28 +25,28 @@ def main():
 
     parser.add_argument("filament_PATH", help="location of filament files")
 
-    parser.add_argument("-t", "--threshold", nargs= '?', const= -3, help="threshold for particle extraction", type=float)
+    parser.add_argument("-t", "--threshold", nargs= '?', default= -3, help="threshold for particle extraction", type=float)
 
     parser.add_argument("save_PATH", help="save location for fitted filament plots")
 
     parser.add_argument("spacing", help="distance between neighbouring particles", type=float)
 
-    parser.add_argument("-eps", "--eps", nargs='?', const=10, help="The maximum distance between two " +
+    parser.add_argument("-eps", "--eps", nargs='?', default=10, help="The maximum distance between two " +
                                                                    "samples for one to be considered " +
                                                                    "as in the neighborhood of the other. "
                         , type=float)
-    parser.add_argument("-im", "--image", nargs="?", const=0,
+    parser.add_argument("-im", "--image", nargs="?", default=0,
                         help="if specified with 1, will save an image for the coordiantes as png as well",
                         type=bool)
-    parser.add_argument("-min_samples", "--min_samples", nargs="?", const=5,
+    parser.add_argument("-min_samples", "--min_samples", nargs="?", default=5,
                         help="The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself."
                         , type=float)
-    parser.add_argument("-box", "--box_size", nargs="?", const=100, help="box size of the selected particles", type=int)
-    parser.add_argument("-min_part", "--min_part", nargs="?", const=10,
+    parser.add_argument("-box", "--box_size", nargs="?", default=100, help="box size of the selected particles", type=int)
+    parser.add_argument("-min_part", "--min_part", nargs="?", default=10,
                         help="the minimum number of particles in a cluster/filament", type=int)
-    parser.add_argument("-processors", "--processors", nargs="?", const= 2, help="Number of processors to use", type=int)
+    parser.add_argument("-processors", "--processors", nargs="?", default= 2, help="Number of processors to use", type=int)
 
-    parser.add_argument("-to_segment", "--segment", nargs="?", const = 0, help="Segment long clusters into subclusters", type =bool)
+    parser.add_argument("-to_segment", "--segment", nargs="?", default = 0, help="Segment long clusters into subclusters", type =bool)
 
     args = parser.parse_args()
 
