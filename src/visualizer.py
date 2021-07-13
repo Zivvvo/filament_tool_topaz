@@ -51,8 +51,9 @@ def rebin(arr, new_shape):
 
 
 def get_coordinates(directory, name):
+    name = name + ".box"
     df = pd.read_csv(os.path.join(directory,
-                                  (name+".box").replace(prefix, "").replace(suffix, "")),
+                                  name.replace(prefix, "").replace(suffix, "")),
                      delimiter = "\t", header = None)
     print(df)
     return (df[0]/binfactor, df[1]/binfactor)
