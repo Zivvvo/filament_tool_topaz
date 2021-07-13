@@ -41,7 +41,7 @@ suffix = args.suffix
 binfactor= args.binfactor
 directory = args.directory
 
-ground_truth = os.path.splitext(args.ground_truth)
+ground_truth = os.path.splitext(args.ground_truth)[0]
 assort_color = args.assort_color
 
 def rebin(arr, new_shape):
