@@ -14,9 +14,8 @@ import argparse
 parser = argparse.ArgumentParser()
 
 parser.add_argument('filename', help = "filename")
-parser.add_argument("box_file", help = "box_file location")
 parser.add_argument('binfactor', default = 1, type = int)
-parser.add_argument('directory', default = "", help = "directory to the file")
+parser.add_argument('directory', default = "", help = "directory to the box file")
 
 
 parser.add_argument('--prefix', default = "", help = "prefix of the filename")
