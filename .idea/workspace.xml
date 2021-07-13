@@ -247,7 +247,7 @@
       <workItem from="1625082163539" duration="666000" />
       <workItem from="1625839599690" duration="3248000" />
       <workItem from="1626025185225" duration="6933000" />
-      <workItem from="1626202753216" duration="2709000" />
+      <workItem from="1626202753216" duration="3688000" />
     </task>
     <servers />
   </component>
@@ -272,7 +272,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/visualizer.py</url>
-          <line>42</line>
+          <line>44</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
