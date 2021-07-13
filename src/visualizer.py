@@ -35,7 +35,7 @@ name = args.filename
 
 im = np.array(load_image(name))
 
-name = os.path.splitext(os.path.basename(name))
+name = os.path.splitext(os.path.basename(name))[0]
 prefix = args.prefix
 suffix = args.suffix
 binfactor= args.binfactor
