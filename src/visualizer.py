@@ -72,12 +72,12 @@ plt.imshow(im_bin, cmap= "gray")
 x = get_coordinates(directory, name)[0]
 #y = get_coordinates("/storage2/labusr/20210402_TetraCU428/P10/J22/", name)[1]
 y = get_coordinates(directory, name)[1]
-plt.scatter(x, y, marker='.', c = '#1f77b4')
+plt.scatter(x, y, marker='.', c = 'b')
 
 if (ground_truth is not None):
     x_g = get_coordinates("", ground_truth)[0]
     y_g = get_coordinates("", ground_truth)[1]
-    plt.scatter(x,y, marker=".", c = '#7f7f7f')
+    plt.scatter(x,y, marker=".", c = 'r')
 
 plt.gca().set_aspect('equal', adjustable='box')
 #plt.gca().invert_yaxis()
