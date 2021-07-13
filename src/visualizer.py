@@ -13,17 +13,17 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('filename', description = "filename")
-parser.add_argument("box_file", description = "box_file location")
+parser.add_argument('filename', help = "filename")
+parser.add_argument("box_file", help = "box_file location")
 parser.add_argument('binfactor', default = 1, type = int)
-parser.add_argument('directory', default = "", description = "directory to the file")
+parser.add_argument('directory', default = "", help = "directory to the file")
 
 
-parser.add_argument('--prefix', default = "", description = "prefix of the filename")
-parser.add_argument('--suffix', default = "", description = "suffix of the filename")
-parser.add_argument('--ground_truth', description = "path to the box_file that acts as a reference")
+parser.add_argument('--prefix', default = "", help = "prefix of the filename")
+parser.add_argument('--suffix', default = "", help = "suffix of the filename")
+parser.add_argument('--ground_truth', help = "path to the box_file that acts as a reference")
 
-parser.add_argument('--assort_color', default = 0, description = "set to 1 if you want helical groups to be displayed in different colors", type = bool)
+parser.add_argument('--assort_color', default = 0, help = "set to 1 if you want helical groups to be displayed in different colors", type = bool)
 
 ## load the micrographs for visualization
 
