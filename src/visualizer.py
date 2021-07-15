@@ -10,6 +10,7 @@ from PIL import Image
 import glob
 import os
 import argparse
+from sklearn.neighbors import KDTree
 
 parser = argparse.ArgumentParser()
 
@@ -22,7 +23,7 @@ parser.add_argument('--prefix', default = "", help = "prefix of the filename")
 parser.add_argument('--suffix', default = "", help = "suffix of the filename")
 parser.add_argument('--ground_truth', help = "path to the box_file that acts as a reference")
 parser.add_argument('--s' , default = None, help = "if set, will save output image to designated path")
-
+parser.add_argument('--radius', default = 20, help="radius for overlapped points", type = int)
 parser.add_argument('--assort_color', default = 0, help = "set to 1 if you want helical groups to be displayed in different colors", type = bool)
 
 ## load the micrographs for visualization
@@ -58,6 +59,16 @@ def get_coordinates(directory, name):
     print(df)
     return (df[0]/binfactor, df[1]/binfactor)
 
+def overlapped_points(Truth, Predictions, radius):
+    tree = KDTree(Truth, leaf_size = 2*len(Predictions))
+    output = []
+    for point in Predictions:
+        point_copy = point[np.newaxis, :]
+        ind = tree.query_radius(point_copy, r = 15)
+        if len(ind) != 0:
+            output.append(point_copy)
+    return output
+
 
 Nx, Ny = im.shape
 binx = round(Nx/binfactor)
@@ -78,6 +89,18 @@ if (ground_truth is not None):
     x_g = get_coordinates("", ground_truth)[0]
     y_g = get_coordinates("", ground_truth)[1]
     plt.scatter(x,y, marker=".", c = 'r')
+
+    truth = x_g+y_g
+    prediction = x+y
+
+    truth = truth.to_array()
+    prediction = prediction.to_array()
+    overlapped_points = overlapped_points(truth, prediction, int(args.radius))
+    overlapped_np = np.asarray(overlapped_points())
+
+    plt.scatter(overlapped_np[:,0], overlapped_np[:,1])
+
+
 
 plt.gca().set_aspect('equal', adjustable='box')
 #plt.gca().invert_yaxis()
