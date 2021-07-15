@@ -102,7 +102,7 @@ if (ground_truth is not None):
     print(overlapped_points)
     print(overlapped_np)
 
-    plt.scatter(overlapped_np[:,0], overlapped_np[:,1], c= 'o')
+    plt.scatter(overlapped_np[:,0], overlapped_np[:,1], c= 'g')
 
 
 
