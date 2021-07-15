@@ -91,6 +91,8 @@ if (ground_truth is not None):
     plt.scatter(x,y, marker=".", c = 'r')
 
     truth = x_g+y_g
+    print(truth)
+    print(truth.shape)
     prediction = x+y
 
     truth = truth.to_numpy()
