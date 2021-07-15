@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd2990fd-7151-4187-bebe-64c887c999d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/filament_tool_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/visualizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualizer.py" afterDir="false" />
     </list>
@@ -250,7 +249,7 @@
       <workItem from="1626025185225" duration="6933000" />
       <workItem from="1626202753216" duration="6268000" />
       <workItem from="1626359336639" duration="5250000" />
-      <workItem from="1626375739197" duration="760000" />
+      <workItem from="1626375739197" duration="1384000" />
     </task>
     <servers />
   </component>
