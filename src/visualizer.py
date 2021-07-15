@@ -90,10 +90,10 @@ if (ground_truth is not None):
     y_g = get_coordinates("", ground_truth)[1]
     plt.scatter(x,y, marker=".", c = 'r')
 
-    truth = pd.concat([x_g,y_g])
+    truth = pd.concat([x_g,y_g], axis = 1)
     print(truth)
     print(truth.shape)
-    prediction = pd.concat([x,y])
+    prediction = pd.concat([x,y], axis = 1)
 
     truth = truth.to_numpy()
     prediction = prediction.to_numpy()
