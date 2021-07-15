@@ -63,7 +63,7 @@ def overlapped_points(Truth, Predictions, radius):
     tree = KDTree(Truth, leaf_size = 2*len(Predictions))
     output = []
     for point in Predictions:
-        point_copy = point[np.newaxis, :]
+        point_copy = np.copy(point)
         ind = tree.query_radius(point_copy, r = 15)
         if len(ind) != 0:
             output.append(point_copy)
