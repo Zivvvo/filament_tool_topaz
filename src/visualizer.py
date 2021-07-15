@@ -98,7 +98,7 @@ if (ground_truth is not None):
     truth = truth.to_numpy()
     prediction = prediction.to_numpy()
     overlapped_points = overlapped_points(truth, prediction, int(args.radius))
-    overlapped_np = np.asarray(overlapped_points())
+    overlapped_np = np.asarray(overlapped_points)
 
     plt.scatter(overlapped_np[:,0], overlapped_np[:,1], c= 'o')
 
