@@ -68,7 +68,7 @@ def overlapped_points(Truth, Predictions, radius):
         ind = tree.query_radius(point_copy, r = 15)
         if len(ind) != 0:
             output.append(point)
-    return output
+    return output, len(output)
 
 images = []
 for image in glob.glob(os.path.join(image_dir,'*.mrc')):
@@ -112,10 +112,11 @@ while True:
 
             truth = truth.to_numpy()
             prediction = prediction.to_numpy()
-            overlapped_points = overlapped_points(truth, prediction, int(args.radius))
-            overlapped_np = np.asarray(overlapped_points)
-            print(overlapped_points)
-            print(overlapped_np)
+            true_positives, _length = overlapped_points(truth, prediction, int(args.radius))
+            overlapped_np = np.asarray(true_positives)
+
+            print("Recall score: " + str(float(_length/truth.shape[0])))
+            print("Accuracy score: " + str(float(_length/prediction.shape[0])))
 
             plt.scatter(overlapped_np[:, 0], overlapped_np[:, 1], c='g')
 
