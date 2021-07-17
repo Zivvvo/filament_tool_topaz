@@ -23,6 +23,9 @@ parser.add_argument('--ground_truth_directory', help = "directory to the box_fil
 parser.add_argument('--s' , default = None, help = "if set, will save output image to designated path")
 parser.add_argument('--radius', default = 20, help="radius for overlapped points", type = int)
 parser.add_argument('--assort_color', default = 0, help = "set to 1 if you want helical groups to be displayed in different colors", type = bool)
+#parser.add_argument('--clean_prefix', default = True, help = "remove prefixes on micrograph name, typically due to cryosparc processing", type = bool)
+#parser.add_argument('--clean_suffix', default = True, help = "remove suffixes on micrograph name, typically due to cryosparc processing", type = bool)
+
 
 ## load the micrographs for visualization
 
@@ -46,7 +49,7 @@ def find_matching_box(directory, mrc_name):
         box_name = os.path.splitext(os.path.basename(file))
         if box_name in name:
             return box_name
-    raise FileNotFoundError("Cannot find matching box file to "+ mrc_name)
+    raise FileNotFoundError("Cannot find matching box file to "+ name)
 
 def get_coordinates(directory, name):
     name = name + ".box"
