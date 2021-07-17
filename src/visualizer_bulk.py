@@ -44,7 +44,7 @@ def rebin(arr, new_shape):
     return arr.reshape(shape).mean(-1).mean(1)
 
 def find_matching_box(directory, mrc_name):
-    name = os.path.splitext(os.path.basename(mrc_name))
+    name = os.path.splitext(os.path.basename(mrc_name))[0]
     for file in glob.glob(os.path.join(directory+"*.box")):
         box_name = os.path.splitext(os.path.basename(file))
         if box_name in name:
