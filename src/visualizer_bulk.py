@@ -47,9 +47,13 @@ def find_matching_box(directory, mrc_name):
     name = os.path.splitext(os.path.basename(mrc_name))[0]
     for file in glob.glob(os.path.join(directory+"*.box")):
         box_name = os.path.splitext(os.path.basename(file))
+        print(box_name)
+        print(name)
         if box_name in name:
             return box_name
-    raise FileNotFoundError("Cannot find matching box file to "+ name)
+    raise FileNotFoundError("Cannot find matching box file to "+ name + ", \n"
+                                                                        "This may be due to prefixes"
+                                                                        " and suffixes on the micrograph file.")
 
 def get_coordinates(directory, name):
     name = name + ".box"
