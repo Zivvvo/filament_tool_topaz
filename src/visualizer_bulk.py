@@ -71,13 +71,10 @@ def overlapped_points(Truth, Predictions, radius):
     return output, len(output)
 
 images = []
-index = 0
+
 for image in glob.glob(os.path.join(image_dir,'*.mrc')):
     im = np.array(load_image(image))
     images.append(im)
-    index = index+1
-    if (index == 10):
-        break
 
 while True:
     try:
