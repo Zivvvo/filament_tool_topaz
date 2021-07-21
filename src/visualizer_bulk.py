@@ -27,6 +27,7 @@ parser.add_argument('--assort_color', default = 0, help = "set to 1 if you want 
 #parser.add_argument('--clean_prefix', default = True, help = "remove prefixes on micrograph name, typically due to cryosparc processing", type = bool)
 #parser.add_argument('--clean_suffix', default = True, help = "remove suffixes on micrograph name, typically due to cryosparc processing", type = bool)
 parser.add_argument('--diameter', default = 100, help = "diameter of the filament", type = int)
+parser.add_argument('--processors', default = 3, help = "number of processors used to load images", type = int)
 
 ## load the micrographs for visualization
 
@@ -72,9 +73,25 @@ def overlapped_points(Truth, Predictions, radius):
 
 images = []
 
-for image in glob.glob(os.path.join(image_dir,'*.mrc')):
+import concurrent.futures
+
+def load_im(image):
     im = np.array(load_image(image))
-    images.append(im)
+    return im
+
+'''for image in glob.glob(os.path.join(image_dir,'*.mrc')):
+    im = np.array(load_image(image))
+    images.append(im)'''
+
+'''with multiprocessing.Pool(int(args.processors)) as pool:
+    parameter_list = glob.glob(os.path.join(image_dir,'*.mrc'))
+    images = pool.map(load_im, parameter_list)'''
+
+with concurrent.futures.ThreadPoolExecutor(max_workers = 8) as executor:
+    parameters = glob.glob(os.path.join(image_dir,'*.mrc'))
+    images = list(executor.map(load_im, parameters))
+
+print(images)
 
 while True:
     try:
@@ -127,7 +144,8 @@ while True:
             print("Recall score: " + str(float(_length/truth.shape[0])))
             print("Accuracy score: " + str(float(_length/prediction.shape[0])))
 
-            ax.scatter(overlapped_np[:, 0], overlapped_np[:, 1], s= int(args.diameter), edgecolors='y', facecolors = 'none')
+            if (overlapped_np.ndim == 2):
+                ax.scatter(overlapped_np[:, 0], overlapped_np[:, 1], s= int(args.diameter), edgecolors='y', facecolors = 'none')
 
 
 
@@ -151,5 +169,8 @@ while True:
         print("Invalid index, continue...")
         continue
     except FileNotFoundError as e:
+        print(e)
+        continue
+    except AssertionError as e:
         print(e)
         continue
