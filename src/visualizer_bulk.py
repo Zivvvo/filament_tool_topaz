@@ -61,6 +61,19 @@ def get_coordinates(directory, name):
                      delimiter = "\t", header = None)
     return (df[0]/binfactor, df[1]/binfactor)
 
+def split_clusters(directory, name):
+    name = name + ".box"
+    df = pd.read_csv(os.path.join(directory,name),
+                     delimiter = "\t", header = None)
+    list_of_clusters = []
+    for i in range(min(df[4]), max(df[4])+1):
+        cluster = df[df[4]==i]
+        cluster.loc[:,0]/=binfactor
+        cluster.loc[:,1]/=binfactor
+        list_of_clusters.append(cluster)
+    
+    return list_of_clusters
+
 def overlapped_points(Truth, Predictions, radius):
     tree = KDTree(Truth, leaf_size = 2*len(Predictions))
     output = []
@@ -87,15 +100,25 @@ def load_im(image):
     parameter_list = glob.glob(os.path.join(image_dir,'*.mrc'))
     images = pool.map(load_im, parameter_list)'''
 
+parameters = glob.glob(os.path.join(image_dir,'*.mrc'))
+print("There are a total of "+ str(len(parameters)) + " micrographs to view, please specifiy an index between 0 to "+ str(len(parameters)-1))
+
+subselection = input("Would you like to select a range of micrographs? Y/N")
+if (subselection == "Y" or subselection == "y"):
+    index1 = input("starting index:")
+    index2 = input("ending index:")
+    parameters = parameters[int(index1):int(index2)]
+
 with concurrent.futures.ThreadPoolExecutor(max_workers = 8) as executor:
-    parameters = glob.glob(os.path.join(image_dir,'*.mrc'))
+    
     images = list(executor.map(load_im, parameters))
 
 print(images)
 
 while True:
     try:
-        print("There are a total of "+ str(len(images)) + " micrographs to view, please specifiy an index between 0 to "+ str(len(images)-1))
+        print("There are a total of "+ str(len(images)) + " micrographs in the selected range \
+        to view, please specifiy an index between 0 to "+ str(len(images)-1))
         user_response = input("Enter the index for the micrograph you want to select")
 
         image_name = os.path.basename(glob.glob(os.path.join(image_dir,'*.mrc'))[int(user_response)])
@@ -113,41 +136,47 @@ while True:
 
         box_file_name = find_matching_box(directory, image_name)
 
-        # x = get_coordinates("/storage2/labusr/20210402_TetraCU428/P10/J22/", name)[0]
-        x = get_coordinates(directory, box_file_name)[0]
-        # y = get_coordinates("/storage2/labusr/20210402_TetraCU428/P10/J22/", name)[1]
-        y = get_coordinates(directory, box_file_name)[1]
+        if (args.assort_color):
+            list_of_clusters = split_clusters(directory, box_file_name)
+            for cluster in list_of_clusters:
+                ax.scatter(cluster[0],cluster[1])
+
+        else:
 
 
-        print(np.concatenate((np.asarray(x)[:, np.newaxis], np.asarray(y)[:, np.newaxis]), axis = 1))
-
-        ax.scatter(x, y, s = int(args.diameter), edgecolors='b', facecolors = 'none')
-
-        if (ground_truth_directory is not None):
-            truth_box_file_name = find_matching_box(ground_truth_directory, image_name)
-
-            x_g = get_coordinates(ground_truth_directory, truth_box_file_name)[0]
-            y_g = get_coordinates(ground_truth_directory, truth_box_file_name)[1]
-            ax.scatter(x_g, y_g, s = int(args.diameter), edgecolors='r', facecolors = 'none')
+            # x = get_coordinates("/storage2/labusr/20210402_TetraCU428/P10/J22/", name)[0]
+            x = get_coordinates(directory, box_file_name)[0]
+            # y = get_coordinates("/storage2/labusr/20210402_TetraCU428/P10/J22/", name)[1]
+            y = get_coordinates(directory, box_file_name)[1]
 
 
-            truth = pd.concat([x_g, y_g], axis=1)
-            prediction = pd.concat([x, y], axis=1)
+            print(np.concatenate((np.asarray(x)[:, np.newaxis], np.asarray(y)[:, np.newaxis]), axis = 1))
 
-            truth = truth.to_numpy()
-            prediction = prediction.to_numpy()
-            true_positives, _length = overlapped_points(truth, prediction, int(args.radius))
-            overlapped_np = np.asarray(true_positives)
+            ax.scatter(x, y, s = int(args.diameter), edgecolors='b', facecolors = 'none')
 
-            print(overlapped_np)
+            if (ground_truth_directory is not None):
+                truth_box_file_name = find_matching_box(ground_truth_directory, image_name)
 
-            print("Recall score: " + str(float(_length/truth.shape[0])))
-            print("Accuracy score: " + str(float(_length/prediction.shape[0])))
-
-            if (overlapped_np.ndim == 2):
-                ax.scatter(overlapped_np[:, 0], overlapped_np[:, 1], s= int(args.diameter), edgecolors='y', facecolors = 'none')
+                x_g = get_coordinates(ground_truth_directory, truth_box_file_name)[0]
+                y_g = get_coordinates(ground_truth_directory, truth_box_file_name)[1]
+                ax.scatter(x_g, y_g, s = int(args.diameter), edgecolors='r', facecolors = 'none')
 
 
+                truth = pd.concat([x_g, y_g], axis=1)
+                prediction = pd.concat([x, y], axis=1)
+
+                truth = truth.to_numpy()
+                prediction = prediction.to_numpy()
+                true_positives, _length = overlapped_points(truth, prediction, int(args.radius))
+                overlapped_np = np.asarray(true_positives)
+
+                print(overlapped_np)
+
+                print("Recall score: " + str(float(_length/truth.shape[0])))
+                print("Accuracy score: " + str(float(_length/prediction.shape[0])))
+
+                if (overlapped_np.ndim == 2):
+                    ax.scatter(overlapped_np[:, 0], overlapped_np[:, 1], s= int(args.diameter), edgecolors='y', facecolors = 'none')
 
         plt.gca().set_aspect('equal', adjustable='box')
         # plt.gca().invert_yaxis()
