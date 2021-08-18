@@ -83,8 +83,9 @@ def DBSCAN_fit(img, eps=15, min_samples=5):
 
 def optics_fit(img, xi = -0.15, min_samples=2):
     from sklearn import cluster
-
-    X = img
+    print(img)
+    X = np.concatenate((img[0][...,np.newaxis], img[1][...,np.newaxis]), axis = 1)
+    print(X)
     optics = cluster.OPTICS(min_samples,
                             cluster_method='xi',
                             xi = xi)
@@ -105,7 +106,7 @@ def optics_fit(img, xi = -0.15, min_samples=2):
         class_member_mask = (labels == l)
         cluster = X[class_member_mask]
         clusters.append(cluster)
-
+    print(clusters)
     return clusters
 
 

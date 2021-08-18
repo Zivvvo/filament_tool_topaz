@@ -68,7 +68,7 @@ def parse_helix_coordinates(path, threshold=-2.5):
     file_library = {}
     threshold_score = threshold
 
-    for file in os.listdir(path)[1:]:
+    for file in os.listdir(path)[0:]:
         try:
             df = pd.read_csv(os.path.join(path,file), sep="\t")
             df = df.drop(df[df.score<threshold_score].index)

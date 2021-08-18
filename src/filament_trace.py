@@ -2,7 +2,6 @@ import os
 import sys
 import argparse
 import multiprocessing as mp
-from gooey import Gooey
 import warnings
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -15,7 +14,6 @@ from utils.filament_fit import *
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-@Gooey
 
 def main():
     sys.path.append(".")
@@ -40,7 +38,7 @@ def main():
                         type=bool)
     parser.add_argument("-min_samples", "--min_samples", nargs="?", default=5,
                         help="The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself."
-                        , type=float)
+                        , type=int)
     parser.add_argument("-box", "--box_size", nargs="?", default=100, help="box size of the selected particles", type=int)
     parser.add_argument("-min_part", "--min_part", nargs="?", default=10,
                         help="the minimum number of particles in a cluster/filament", type=int)
@@ -48,6 +46,10 @@ def main():
 
     parser.add_argument("-to_segment", "--segment", nargs="?", default = 0, help="Segment long clusters into subclusters", type =bool)
 
+    parser.add_argument("-optics", "--optics", default = 0, help = "use the optics algorithm", type =bool)
+
+    parser.add_argument("-xi", "--xi", default = -0.25, help = "xi parameter for optics, default = -0.05, the lower it is, the more generalizing", type = float)
+    
     args = parser.parse_args()
 
     box_size = args.box_size
@@ -57,10 +59,12 @@ def main():
     # convert to numpy
     file_library = None
     if args.threshold is not None:
+        print(args.threshold)
         file_library = parse_helix_coordinates(args.filament_PATH, threshold=args.threshold)
         print("args.threshold is provided")
     else:
         file_library = parse_helix_coordinates(args.filament_PATH)
+
 
     pool = mp.Pool(args.processors)
 
@@ -68,20 +72,21 @@ def main():
 
     results = pool.map(func, [file for file in file_library])
 
+    print("ok")
+
     pool.close()
 
     pool.join()
-
-    exit(100)
 
 
 def process_file(file_library, args, file):
     print("Writing filament coordinates for " + file)
     img = file_library[file]
-    plt.scatter(img[0], img[1], marker=".")
-    plt.close()
     try:
-        list_of_clusters = DBSCAN_fit(img, eps=args.eps, min_samples=args.min_samples)
+        if (args.optics):
+            list_of_clusters = optics_fit(img, min_samples = args.min_samples, xi = args.xi)
+        else:
+            list_of_clusters = DBSCAN_fit(img, eps=args.eps, min_samples=args.min_samples)
     except ValueError as e:
         print(e)
         print("no clusters found, continuing to next file")
